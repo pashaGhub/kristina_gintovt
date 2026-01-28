@@ -55,8 +55,8 @@ export function Profile() {
             <div
               className={`bg-white/80 backdrop-blur-sm p-8 md:p-12 rounded-lg shadow-xl transition-all duration-1000 ease-out ${
                 isVisible
-                  ? 'translate-x-0 opacity-100'
-                  : 'translate-x-16 opacity-0'
+                  ? 'translate-y-0 opacity-100'
+                  : 'translate-y-16 opacity-0'
               }`}
             >
               <h2 className="text-4xl md:text-5xl font-light text-teal-800 mb-4">

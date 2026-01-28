@@ -50,23 +50,23 @@ export function Mountain() {
       <div className="relative z-10 w-full mb-8">
         <div
           className={`relative transition-all duration-2000 ease-out ${
-            showBg ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
+            showBg ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
           }`}
         >
           <div
             className="bg-white/20 backdrop-blur-sm py-6 px-8 md:px-16 lg:px-24"
             style={{
-              clipPath: 'polygon(0 0, 60% 0, 55% 100%, 0 100%)',
+              clipPath: 'polygon(0 0, 98% 0, 95% 100%, 0 100%)',
             }}
           >
             <p
               className={`text-3xl md:text-4xl lg:text-5xl font-light text-white text-left transition-all duration-700 ease-out delay-300 ${
                 isVisible
-                  ? 'translate-x-0 opacity-100'
-                  : '-translate-x-12 opacity-0'
+                  ? 'translate-y-0 opacity-100'
+                  : '-translate-y-12 opacity-0'
               }`}
             >
-              Kiekvienas kalnas įkopimas
+              „Žmogaus širdies mintys – gilūs vandenys,
             </p>
           </div>
         </div>
@@ -76,23 +76,23 @@ export function Mountain() {
       <div className="relative z-10 w-full">
         <div
           className={`relative transition-all duration-3000 ease-out ${
-            showBg ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
+            showBg ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
           }`}
         >
           <div
             className="bg-white/20 backdrop-blur-sm py-6 px-8 md:px-16 lg:px-24"
             style={{
-              clipPath: 'polygon(45% 0, 100% 0, 100% 100%, 40% 100%)',
+              clipPath: 'polygon(5% 0, 100% 0, 100% 100%, 2% 100%)',
             }}
           >
             <p
               className={`text-3xl md:text-4xl lg:text-5xl font-light text-white text-right transition-all duration-700 ease-out delay-300 ${
                 isVisible
-                  ? 'translate-x-0 opacity-100'
-                  : 'translate-x-12 opacity-0'
+                  ? 'translate-y-0 opacity-100'
+                  : 'translate-y-12 opacity-0'
               }`}
             >
-              po vieną žingsnį
+              bet išmintingas žmogus jas semia.&quot; <i>(Pat 20,5)</i>
             </p>
           </div>
         </div>

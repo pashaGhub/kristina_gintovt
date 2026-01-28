@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+import plant from '@/public/plant.png';
 
 export function Hero() {
   const [heroTextVisible, setHeroTextVisible] = useState(false);
@@ -23,8 +24,7 @@ export function Hero() {
         <div
           className="w-full h-full bg-linear-to-br from-orange-200 via-amber-200 to-teal-300"
           style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=1200&q=80')",
+            backgroundImage: `url(${plant.src})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -33,7 +33,7 @@ export function Hero() {
 
       {/* Diagonal Separator mobile */}
       <div
-        className={`md:hidden absolute inset-0 bg-linear-to-br from-amber-50/95 via-orange-50/95 to-teal-50/95 transition-all duration-1000 ease-out ${
+        className={`md:hidden absolute inset-0 bg-linear-to-br from-amber-50/75 via-orange-50/95 to-teal-50/95 transition-all duration-1000 ease-out ${
           heroBgVisible
             ? 'translate-x-0 opacity-100'
             : 'translate-x-full opacity-0'
@@ -57,7 +57,7 @@ export function Hero() {
 
       {/* Diagonal Separator large */}
       <div
-        className={`hidden lg:block xl:hidden absolute inset-0 bg-linear-to-br from-amber-50/95 via-orange-50/95 to-teal-50/95 transition-all duration-1000 ease-out ${
+        className={`hidden lg:block xl:hidden absolute inset-0 bg-linear-to-br from-amber-50/45 via-orange-50/45 to-teal-50/95 transition-all duration-1000 ease-out ${
           heroBgVisible
             ? 'translate-x-0 opacity-100'
             : 'translate-x-full opacity-0'
@@ -69,7 +69,7 @@ export function Hero() {
 
       {/* Diagonal Separator xl */}
       <div
-        className={`hidden xl:block absolute inset-0 bg-linear-to-br from-amber-50/95 via-orange-50/95 to-teal-50/95 transition-all duration-1000 ease-out ${
+        className={`hidden xl:block absolute inset-0 bg-linear-to-br from-amber-50/45 via-orange-50/45 to-teal-50/95 transition-all duration-1000 ease-out ${
           heroBgVisible
             ? 'translate-x-0 opacity-100'
             : 'translate-x-full opacity-0'
@@ -102,7 +102,7 @@ export function Hero() {
             href="#contact"
             className="inline-block bg-linear-to-r from-orange-300 to-teal-800 hover:opacity-90 text-white px-8 py-3 rounded transition-all duration-300 hover:scale-105 shadow-lg"
           >
-            Užsiregistruoti
+            Susisiek
           </a>
         </div>
       </div>
