@@ -16,7 +16,7 @@ export function Profile() {
           }
         });
       },
-      { threshold: 0.5 },
+      { threshold: 0.2 },
     );
 
     if (sectionRef.current) {
@@ -31,10 +31,7 @@ export function Profile() {
   }, [isVisible]);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative min-h-screen bg-linear-to-b from-slate-50 to-orange-50 py-20"
-    >
+    <section className="relative min-h-screen bg-linear-to-b from-slate-50 to-orange-50 py-20">
       <div className="container mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row gap-12 items-center max-w-6xl mx-auto">
           {/* Image - Left Side */}
@@ -51,7 +48,7 @@ export function Profile() {
           </div>
 
           {/* Description - Right Side */}
-          <div className="w-full md:w-3/5">
+          <div className="w-full md:w-3/5" ref={sectionRef}>
             <div
               className={`bg-white/80 backdrop-blur-sm p-8 md:p-12 rounded-lg shadow-xl transition-all duration-1000 ease-out ${
                 isVisible

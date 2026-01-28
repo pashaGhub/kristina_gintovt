@@ -33,7 +33,7 @@ export function Hero() {
 
       {/* Diagonal Separator mobile */}
       <div
-        className={`md:hidden absolute inset-0 bg-linear-to-br from-amber-50/75 via-orange-50/95 to-teal-50/95 transition-all duration-1000 ease-out ${
+        className={`md:hidden absolute inset-0 bg-linear-to-br from-amber-50/45 via-orange-50/45 to-teal-50/95 transition-all duration-1000 ease-out ${
           heroBgVisible
             ? 'translate-x-0 opacity-100'
             : 'translate-x-full opacity-0'
@@ -45,7 +45,7 @@ export function Hero() {
 
       {/* Diagonal Separator tablet */}
       <div
-        className={`hidden md:block lg:hidden absolute inset-0 bg-linear-to-br from-amber-50/95 via-orange-50/95 to-teal-50/95 transition-all duration-1000 ease-out ${
+        className={`hidden md:block lg:hidden absolute inset-0 bg-linear-to-br from-amber-50/45 via-orange-50/45 to-teal-50/95 transition-all duration-1000 ease-out ${
           heroBgVisible
             ? 'translate-x-0 opacity-100'
             : 'translate-x-full opacity-0'
@@ -89,14 +89,15 @@ export function Hero() {
                 : 'translate-x-32 opacity-0'
             }`}
         >
-          <h1 className="text-6xl font-light text-gray-800 mb-6">
-            Raskite Savo
-            <span className="block text-teal-800">Vidinę Ramybę</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-teal-800 mb-8 leading-tight">
+            Augimas prasideda ten, kur yra saugu.
           </h1>
-          <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-            Profesionali psichologinė pagalba saugioje ir svetingoje aplinkoje.
-            Kartu mes įveiksime gyvenimo iššūkius ir atrasime Jūsų kelią į
-            gerovę.
+          <p className="text-lg md:text-xl text-gray-800 mb-4 leading-relaxed">
+            Tai psichologinių konsultacijų erdvė, kur galima sustoti, būti
+            išgirstam ir leisti vidiniams pokyčiams augti savo tempu.
+          </p>
+          <p className="text-lg md:text-xl text-gray-800 mb-8 leading-relaxed font-medium">
+            Santykis, kuriame galite būti savimi.
           </p>
           <a
             href="#contact"

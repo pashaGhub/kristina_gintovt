@@ -39,7 +39,7 @@ export function Mountain() {
       className="relative min-h-120 flex flex-col items-center justify-center"
     >
       <div
-        className="absolute inset-0 bg-cover bg-fixed"
+        className="absolute inset-0 bg-cover md:bg-fixed"
         style={{
           backgroundImage: `url('${canada.src}')`,
           backgroundPosition: 'center 90%',
@@ -92,7 +92,8 @@ export function Mountain() {
                   : 'translate-y-12 opacity-0'
               }`}
             >
-              bet išmintingas žmogus jas semia.&quot; <i>(Pat 20,5)</i>
+              bet išmintingas žmogus jas semia.&quot;{' '}
+              <i className="text-sm">(Pat 20,5)</i>
             </p>
           </div>
         </div>
