@@ -55,7 +55,7 @@ export function Profile() {
             >
               <div className="relative">
                 {/* Photo frame effect with rotation */}
-                <div className="absolute -inset-2 md:-inset-4 bg-white rounded shadow-2xl transform rotate-1 md:rotate-2"></div>
+                <div className="absolute -inset-2 md:-inset-4 bg-linear-to-br from-teal-50 to-orange-50 rounded shadow-2xl transform rotate-1 md:rotate-2"></div>
                 <div className="relative aspect-3/4 w-full rounded overflow-hidden shadow-xl transform -rotate-2 hover:rotate-0 transition-transform duration-500">
                   <Image
                     src={kristinaProfile}
@@ -108,7 +108,7 @@ export function Profile() {
             >
               <div className="relative">
                 {/* Photo frame effect with rotation */}
-                <div className="absolute -inset-2 md:-inset-4 bg-white rounded shadow-2xl transform -rotate-1 md:-rotate-3"></div>
+                <div className="absolute -inset-2 md:-inset-4 bg-linear-to-br from-sky-50 to-teal-50 rounded shadow-2xl transform -rotate-1 md:-rotate-3"></div>
                 <div className="relative aspect-4/5 w-full rounded overflow-hidden shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
                   <Image
                     src={kristinaMountain}
