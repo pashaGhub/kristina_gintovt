@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
-import kristina from '@/public/kristina.jpeg';
+import kristinaProfile from '@/public/kristina_profile.jpg';
+import kristinaMountain from '@/public/kristina_mountain.jpg';
 import { useEffect, useRef, useState } from 'react';
 
 export function Profile() {
@@ -31,78 +32,121 @@ export function Profile() {
   }, [isVisible]);
 
   return (
-    <section className="relative min-h-screen bg-linear-to-b from-slate-50 to-orange-50 py-20">
+    <section
+      ref={sectionRef}
+      className="relative min-h-screen bg-linear-to-b from-slate-50 to-orange-50 py-20"
+    >
       <div className="container mx-auto px-6 md:px-12">
-        <div className="flex flex-col md:flex-row gap-12 items-center max-w-6xl mx-auto">
-          {/* Image - Left Side */}
-          <div className="w-full md:w-2/5 shrink-0">
-            <div className="relative aspect-3/4 w-full max-w-md mx-auto">
-              <Image
-                src={kristina}
-                alt="Kristina - Professional Psychologist"
-                fill
-                className="object-cover rounded-lg shadow-2xl"
-                priority
-              />
-            </div>
-          </div>
+        <div className="max-w-6xl mx-auto">
+          {/* Heading */}
+          <h2 className="text-4xl md:text-5xl font-light text-teal-800 mb-16 text-center">
+            Susipažinkime
+          </h2>
 
-          {/* Description - Right Side */}
-          <div className="w-full md:w-3/5" ref={sectionRef}>
+          {/* First Section - Image Left */}
+          <div className="flex flex-col md:flex-row gap-12 items-center mb-24">
+            {/* Image */}
             <div
-              className={`bg-white/80 backdrop-blur-sm p-8 md:p-12 rounded-lg shadow-xl transition-all duration-1000 ease-out ${
+              className={`w-full md:w-2/5 transition-all duration-1000 ease-out ${
+                isVisible
+                  ? 'translate-y-0 opacity-100'
+                  : '-translate-y-16 opacity-0'
+              }`}
+            >
+              <div className="relative">
+                {/* Photo frame effect with rotation */}
+                <div className="absolute -inset-2 md:-inset-4 bg-white rounded shadow-2xl transform rotate-1 md:rotate-2"></div>
+                <div className="relative aspect-3/4 w-full rounded overflow-hidden shadow-xl transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+                  <Image
+                    src={kristinaProfile}
+                    alt="Kristina Gintovt - Psichologė"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Text Content */}
+            <div
+              className={`w-full md:w-3/5 space-y-4 transition-all duration-1000 ease-out delay-300 ${
                 isVisible
                   ? 'translate-y-0 opacity-100'
                   : 'translate-y-16 opacity-0'
               }`}
             >
-              <h2 className="text-4xl md:text-5xl font-light text-teal-800 mb-4">
-                Susipažinkite su Kristina
-              </h2>
-              <div className="w-20 h-1 bg-linear-to-r from-orange-500 to-teal-800 rounded-full mb-6"></div>
-
-              <p className="text-lg text-gray-800 leading-relaxed mb-6">
-                Sveiki! Aš esu Kristina, licencijuota psichologė, padedanti
-                žmonėms įveikti gyvenimo iššūkius ir atrasti vidinę stiprybę.
-                Turiu daugiau nei 10 metų patirties klinikinėje psichologijoje
-                ir teikiu užjaučiančią, įrodymais pagrįstą pagalbą, pritaikytą
-                Jūsų unikalių poreikiams.
+              <p className="text-base md:text-lg text-gray-800 leading-relaxed">
+                Esu <strong className="text-teal-800">Kristina Gintovt</strong>,
+                psichologė, kognityvinės elgesio terapijos (KET) konsultantė.
+                Psichologinės konsultacijos man pirmiausia yra santykis –
+                saugus, pagarbus ir grindžiamas pasitikėjimu. Tikiu, kad būtent
+                jame atsiranda galimybė sustoti, įsiklausyti į save ir pamažu
+                judėti pokyčio link.
               </p>
 
-              <p className="text-lg text-gray-800 leading-relaxed mb-6">
-                Mano metodas derina kognityvinio elgesio terapiją, sąmoningumo
-                technikas ir į asmenį orientuotą konsultavimą, kad sukurčiau
-                saugią, palaikančią aplinką, kurioje galėtumėte tyrinėti savo
-                mintis, emocijas ir tikslus be vertinimo.
+              <p className="text-base md:text-lg text-gray-800 leading-relaxed">
+                Mano profesinis kelias susijęs su psichologija ir nuolatiniu
+                gilinimusi į žmogaus emocinį pasaulį. Esu baigusi psichologijos
+                bakalauro ir magistro studijas, šiuo metu studijuoju kognityvinę
+                elgesio terapiją. Dirbu su suaugusiaisiais ir jaunimu, vedu
+                individualias konsultacijas, grupinius užsiėmimus ir paskaitas
+                psichologinėmis temomis.
               </p>
+            </div>
+          </div>
 
-              <div className="space-y-4 mt-8">
-                <h3 className="text-2xl font-light text-teal-800 mb-4">
-                  Specializacijos
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  {[
-                    'Nerimo ir Streso Valdymas',
-                    'Depresijos Gydymas',
-                    'Santykių Konsultavimas',
-                    'Asmeninis Augimas',
-                    'Trauma ir PTSV',
-                    'Gyvenimo Pokyčiai',
-                  ].map((specialty, index) => (
-                    <div key={index} className="flex items-center space-x-3">
-                      <div className="w-2 h-2 rounded-full bg-teal-800"></div>
-                      <span className="text-gray-800">{specialty}</span>
-                    </div>
-                  ))}
+          {/* Second Section - Image Right */}
+          <div className="flex flex-col md:flex-row-reverse gap-12 items-center">
+            {/* Image */}
+            <div
+              className={`w-full md:w-2/5 transition-all duration-1000 ease-out delay-500 ${
+                isVisible
+                  ? 'translate-y-0 opacity-100'
+                  : 'translate-y-16 opacity-0'
+              }`}
+            >
+              <div className="relative">
+                {/* Photo frame effect with rotation */}
+                <div className="absolute -inset-2 md:-inset-4 bg-white rounded shadow-2xl transform -rotate-1 md:-rotate-3"></div>
+                <div className="relative aspect-4/5 w-full rounded overflow-hidden shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                  <Image
+                    src={kristinaMountain}
+                    alt="Kristina Gintovt"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </div>
+            </div>
 
-              <div className="mt-8 pt-6 border-t border-gray-300">
-                <p className="text-sm text-gray-700">
-                  <strong>Kvalifikacija:</strong> Licencijuota Klinikinė
-                  Psichologė (MA, PhD) • Amerikos Psichologijos Asociacijos Narė
-                </p>
-              </div>
+            {/* Text Content */}
+            <div
+              className={`w-full md:w-3/5 space-y-4 transition-all duration-1000 ease-out delay-700 ${
+                isVisible
+                  ? 'translate-y-0 opacity-100'
+                  : 'translate-y-16 opacity-0'
+              }`}
+            >
+              <p className="text-base md:text-lg text-gray-800 leading-relaxed">
+                Savo darbe siekiu kurti aplinką, kurioje galima būti savimi ir
+                kalbėti apie tai, kas sunku. Konsultacijų metu kartu ieškome
+                būdų geriau suprasti savo mintis, jausmus bei reakcijas,
+                stiprinti vidinius resursus ir rasti kasdienybėje pritaikomus
+                sprendimus.
+              </p>
+
+              <p className="text-base md:text-lg text-gray-800 leading-relaxed">
+                Visa, kas aptariama konsultacijų metu, išlieka konfidencialu ir
+                priimama su pagarba. Nuolat tobulinu profesines žinias ir
+                kompetencijas, dalyvauju supervizijose, kuriose užtikrinama
+                profesionali pagalba ir priežiūra.
+              </p>
+
+              <p className="text-base md:text-lg font-bold leading-relaxed text-teal-800">
+                Kiekvienas žmogus ateina su savo istorija, todėl ir konsultacijų
+                procesas visada yra individualus.
+              </p>
             </div>
           </div>
         </div>
