@@ -39,9 +39,12 @@ export function Profile() {
       <div className="container mx-auto px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
           {/* Heading */}
-          <h2 className="text-4xl md:text-5xl font-light text-teal-800 mb-16 text-center">
-            Susipažinkime
-          </h2>
+          <div className="mb-16">
+            <h2 className="text-4xl md:text-5xl font-light text-teal-800 text-center mb-4">
+              Susipažinkime
+            </h2>
+            <div className="w-24 h-1 bg-linear-to-r from-orange-400 to-teal-800 mx-auto rounded-full"></div>
+          </div>
 
           {/* First Section - Image Left */}
           <div className="flex flex-col md:flex-row gap-12 items-center mb-24">
@@ -55,7 +58,7 @@ export function Profile() {
             >
               <div className="relative">
                 {/* Photo frame effect with rotation */}
-                <div className="absolute -inset-2 md:-inset-4 bg-linear-to-br from-teal-50 to-orange-50 rounded shadow-2xl transform rotate-1 md:rotate-2"></div>
+                <div className="absolute -inset-2 md:-inset-4 bg-linear-to-br from-slate-300 to-orange-300 rounded shadow-2xl transform rotate-1 md:rotate-2"></div>
                 <div className="relative aspect-3/4 w-full rounded overflow-hidden shadow-xl transform -rotate-2 hover:rotate-0 transition-transform duration-500">
                   <Image
                     src={kristinaProfile}
@@ -89,9 +92,9 @@ export function Profile() {
                 Mano profesinis kelias susijęs su psichologija ir nuolatiniu
                 gilinimusi į žmogaus emocinį pasaulį. Esu baigusi psichologijos
                 bakalauro ir magistro studijas, šiuo metu studijuoju kognityvinę
-                elgesio terapiją. Dirbu su suaugusiaisiais ir jaunimu, vedu
-                individualias konsultacijas, grupinius užsiėmimus ir paskaitas
-                psichologinėmis temomis.
+                elgesio terapiją. Dirbu su suaugusiaisiais, teikiu individualias
+                konsultacijas, vedu grupinius užsiėmumus bei paskaitas ir
+                mokymus psichologinėmis temomis.
               </p>
             </div>
           </div>
@@ -108,7 +111,7 @@ export function Profile() {
             >
               <div className="relative">
                 {/* Photo frame effect with rotation */}
-                <div className="absolute -inset-2 md:-inset-4 bg-linear-to-br from-sky-50 to-teal-50 rounded shadow-2xl transform -rotate-1 md:-rotate-3"></div>
+                <div className="absolute -inset-2 md:-inset-4 bg-linear-to-br from-sky-300 to-orange-200 rounded shadow-2xl transform -rotate-1 md:-rotate-3"></div>
                 <div className="relative aspect-4/5 w-full rounded overflow-hidden shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
                   <Image
                     src={kristinaMountain}
@@ -130,10 +133,9 @@ export function Profile() {
             >
               <p className="text-base md:text-lg text-gray-800 leading-relaxed">
                 Savo darbe siekiu kurti aplinką, kurioje galima būti savimi ir
-                kalbėti apie tai, kas sunku. Konsultacijų metu kartu ieškome
-                būdų geriau suprasti savo mintis, jausmus bei reakcijas,
-                stiprinti vidinius resursus ir rasti kasdienybėje pritaikomus
-                sprendimus.
+                kalbėti apie tai, kas sunku. Kartu ieškome būdų geriau suprasti
+                savo mintis, jausmus bei reakcijas, stiprinti vidinius resursus
+                ir rasti kasdienybėje pritaikomus sprendimus.
               </p>
 
               <p className="text-base md:text-lg text-gray-800 leading-relaxed">

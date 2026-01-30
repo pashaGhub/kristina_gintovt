@@ -1,9 +1,57 @@
+'use client';
+import { sendEmail } from '@/actions/sendEmail';
+import { useState } from 'react';
+
 export function Contact() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setStatus({ type: null, message: '' });
+
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get('name') as string;
+    const email = formData.get('email') as string;
+    const message = formData.get('message') as string;
+
+    const result = await sendEmail(name, email, message);
+
+    setIsLoading(false);
+
+    if (result.success) {
+      setStatus({
+        type: 'success',
+        message: 'Žinutė sėkmingai išsiųsta! Netrukus su jumis susisieksime.',
+      });
+      // Reset form
+      (e.target as HTMLFormElement).reset();
+    } else {
+      setStatus({
+        type: 'error',
+        message:
+          result.error || 'Nepavyko išsiųsti žinutės. Bandykite dar kartą.',
+      });
+    }
+
+    // Clear status after 5 seconds
+    setTimeout(() => {
+      setStatus({ type: null, message: '' });
+    }, 5000);
+  };
+
   return (
     <div className="container mx-auto px-12">
-      <h2 className="text-5xl font-light text-teal-800 text-center mb-16">
-        Susisiekite
-      </h2>
+      <div className="mb-16">
+        <h2 className="text-5xl font-light text-teal-800 text-center mb-4">
+          Susisiekite
+        </h2>
+        <div className="w-24 h-1 bg-linear-to-r from-orange-400 to-teal-800 mx-auto rounded-full"></div>
+      </div>
 
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
         {/* Contact Info */}
@@ -67,7 +115,7 @@ export function Contact() {
                     Kabinetas
                   </p>
                   <p className="text-gray-800 font-medium">
-                    Spaudos rūmai (Laisvės per. 60, Vilnius)
+                    Spaudos rūmai (Laisvės pr. 60, Vilnius)
                   </p>
                 </div>
               </div>
@@ -81,18 +129,33 @@ export function Contact() {
             Siųsti Žinutę
           </h3>
 
-          <form className="space-y-5">
+          {status.type && (
+            <div
+              className={`mb-6 p-4 rounded-lg ${
+                status.type === 'success'
+                  ? 'bg-green-50 text-green-800 border border-green-200'
+                  : 'bg-red-50 text-red-800 border border-red-200'
+              }`}
+            >
+              <p className="text-sm">{status.message}</p>
+            </div>
+          )}
+
+          <form className="space-y-5" onSubmit={handleSubmit}>
             <div>
               <label
-                htmlFor="title"
+                htmlFor="name"
                 className="block text-xs uppercase tracking-wide text-gray-600 mb-2"
               >
                 Vardas
               </label>
               <input
                 type="text"
-                id="title"
-                className="w-full px-4 py-3 bg-white border border-gray-300 rounded focus:outline-none focus:border-teal-800 transition-all"
+                id="name"
+                name="name"
+                required
+                disabled={isLoading}
+                className="w-full px-4 py-3 bg-white border border-gray-300 rounded focus:outline-none focus:border-teal-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 placeholder="Jūsų vardas"
               />
             </div>
@@ -107,31 +170,64 @@ export function Contact() {
               <input
                 type="email"
                 id="email"
-                className="w-full px-4 py-3 bg-white border border-gray-300 rounded focus:outline-none focus:border-teal-800 transition-all"
+                name="email"
+                required
+                disabled={isLoading}
+                className="w-full px-4 py-3 bg-white border border-gray-300 rounded focus:outline-none focus:border-teal-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 placeholder="jusu.pastas@pavyzdys.lt"
               />
             </div>
 
             <div>
               <label
-                htmlFor="description"
+                htmlFor="message"
                 className="block text-xs uppercase tracking-wide text-gray-600 mb-2"
               >
                 Žinutė
               </label>
               <textarea
-                id="description"
+                id="message"
+                name="message"
                 rows={6}
-                className="w-full px-4 py-3 bg-white border border-gray-300 rounded focus:outline-none focus:border-teal-800 transition-all resize-none"
+                required
+                disabled={isLoading}
+                className="w-full px-4 py-3 bg-white border border-gray-300 rounded focus:outline-none focus:border-teal-800 transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                 placeholder="Papasakokite apie tai, kas Jus čia atvedė..."
               />
             </div>
 
             <button
               type="submit"
-              className="w-full bg-linear-to-r from-orange-300 to-teal-800 hover:opacity-90 text-white py-3 rounded transition-all duration-300"
+              disabled={isLoading}
+              className="w-full bg-linear-to-r from-orange-300 to-teal-800 hover:opacity-90 text-white py-3 rounded transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
             >
-              Siųsti Žinutę
+              {isLoading ? (
+                <>
+                  <svg
+                    className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>
+                  Siunčiama...
+                </>
+              ) : (
+                'Siųsti Žinutę'
+              )}
             </button>
           </form>
         </div>

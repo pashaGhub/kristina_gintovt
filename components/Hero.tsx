@@ -90,11 +90,11 @@ export function Hero() {
             }`}
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-teal-800 mb-8 leading-tight">
-            Augimas prasideda ten, kur yra saugu.
+            Augimas prasideda ten, kur yra saugu
           </h1>
           <p className="text-lg md:text-xl text-gray-800 mb-4 leading-relaxed">
             Tai psichologinių konsultacijų erdvė, kur galima sustoti, būti
-            išgirstam ir leisti vidiniams pokyčiams augti savo tempu.
+            išgirstam ir leisti vidiniams pokyčiams vykti ir bręsti savo tempu.
           </p>
           <p className="text-lg md:text-xl text-gray-800 mb-8 leading-relaxed font-medium">
             Santykis, kuriame galite būti savimi.
@@ -103,7 +103,7 @@ export function Hero() {
             href="#contact"
             className="inline-block bg-linear-to-r from-orange-300 to-teal-800 hover:opacity-90 text-white px-8 py-3 rounded transition-all duration-300 hover:scale-105 shadow-lg"
           >
-            Susisiek
+            Susisiekti
           </a>
         </div>
       </div>
