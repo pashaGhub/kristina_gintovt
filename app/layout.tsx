@@ -13,8 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'CBT terapija',
+  title: 'CBT terapija | Kristina Gintovt',
   description: 'Psichologinių konsultacijų erdvė - Kristina Gintovt',
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export default function RootLayout({
