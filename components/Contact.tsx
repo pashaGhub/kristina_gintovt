@@ -1,5 +1,7 @@
 'use client';
 import { sendEmail } from '@/actions/sendEmail';
+import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 
 export function Contact() {
@@ -119,6 +121,32 @@ export function Contact() {
                   </p>
                 </div>
               </div>
+            </div>
+
+            {/* Collaboration */}
+            <div className="pt-6 border-t border-gray-200/70 font-light text-teal-800">
+              <p className="text-2xl mb-2">Bendradarbiauju su:</p>
+
+              <Link
+                href="https://inpace.lt/darbuotojai/kristina-gintovt/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block hover:opacity-80 transition-opacity"
+              >
+                <div className="flex flex-wrap items-center gap-2">
+                  <Image
+                    src="/caritas.png"
+                    alt="Caritas"
+                    width={160}
+                    height={64}
+                    className="h-16 w-auto"
+                  />
+                  <p>
+                    Vilniaus arkivyskupijos Carito <br /> Mediacijos centru “In
+                    Pace”
+                  </p>
+                </div>
+              </Link>
             </div>
           </div>
         </div>
